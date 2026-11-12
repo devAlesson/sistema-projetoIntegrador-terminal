@@ -17,7 +17,7 @@ export function cadastrarMorador() {
         let telefone = entradaTexto(
             "Informe o telefone nesse formato (91 99999-0002): "
         )
-        console.log(telefone.length)
+        
         let tipo = entradaTexto(
             "Tipo (Proprietario/Inquilino): "
         )

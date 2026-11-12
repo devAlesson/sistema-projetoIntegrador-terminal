@@ -101,3 +101,18 @@ export function relatorioReservasPorArea() {
     }
 }
 
+export function relatorioEncomendasPendentes() {
+    let totalEncomendasPendentes = 0
+    console.log("\n========== RELATORIO DE ENCOMENDAS PENDENTES ==========\n")
+    encomendas.forEach(encomenda => {
+        if (encomenda.status === "Pendente") {
+            console.log(`BLOCO: ${encomenda.bloco}`)
+            console.log(`APARTAMENTO: ${encomenda.apartamento}`)
+            console.log(`DESCRICAO: ${encomenda.descricao}`)
+            console.log(`QUEM RECEBEU: ${encomenda.recebidaPor}`)
+            console.log("---------------------------\n")
+            totalEncomendasPendentes += 1;
+        }
+    })
+    console.log(`TOTAL DE ENCOMENDAS PENDENTES: ${totalEncomendasPendentes}`)
+}

@@ -7,7 +7,7 @@ import {
 } from "./moradores.js"
 
 import {
-    relatorioGeral, relatorioReservasPorArea
+    relatorioGeral, relatorioReservasPorArea, relatorioEncomendasPendentes
 } from "./relatorios.js"
 
 
@@ -133,7 +133,7 @@ while (controleWhile) {
             }
 
         case "12":
-            console.log("\nopcao 12 em desenvolvimento")
+            relatorioEncomendasPendentes()
             break;
 
         case "0":
