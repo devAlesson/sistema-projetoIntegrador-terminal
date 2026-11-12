@@ -9,8 +9,8 @@ let controleWhile = true
 while (controleWhile) {
 
     if (usuarioQueEntrou.perfil === "Sindico") {
-        // console.log("\n==================================")
-        // console.log("=      GESTAO DE CONDOMINIO      =")
+        console.log("\n==================================")
+        console.log("=      GESTAO DE CONDOMINIO      =")
         console.log("\n==================================")
         console.log("============== MENU ==============\n")
         console.log(`============ OlÁ ${usuarioQueEntrou.nome.toUpperCase()} ============\n`)

@@ -1,5 +1,5 @@
 import { entradaNumero, entradaTexto } from "./entrada.js";
-import { moradores } from "./dados.js";
+import { moradores} from "./dados.js";
 
 export function cadastrarMorador() {
     console.log("\n========== CADASTRO DE MORADOR ==========\n")
