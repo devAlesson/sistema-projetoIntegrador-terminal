@@ -85,5 +85,10 @@ export function listarMoradores() {
 
 }
 
-cadastrarMorador()
-listarMoradores()
+export function moradorExiste (bloco, apartamento) {
+    let existeOuNao = moradores.some(morador => {
+        return morador.bloco === bloco && morador.apartamento === apartamento
+    })
+    return existeOuNao
+}
+
