@@ -9,6 +9,7 @@ import {
 import {
     relatorioGeral, relatorioReservasPorArea, relatorioEncomendasPendentes
 } from "./relatorios.js"
+import { reservarAreaComum, listarReservas, cancelarReserva } from "./reservas.js";
 
 
 let usuarioQueEntrou = fazerLogin()
@@ -80,7 +81,7 @@ while (controleWhile) {
                 console.log("\nAcesso nao permitido para o seu perfil!")
                 break;
             } else {
-                console.log("opcao 4 em desenvolvimento")
+                reservarAreaComum()
                 break;
             }
         
@@ -89,7 +90,7 @@ while (controleWhile) {
                 console.log("\nAcesso nao permitido para o seu perfil!")
                 break;
             } else {
-                console.log("opcao 5 em desenvolvimento")
+                listarReservas()
                 break;
             }
 
@@ -98,10 +99,9 @@ while (controleWhile) {
                 console.log("\nAcesso nao permitido para o seu perfil!")
                 break;
             } else {
-                console.log("opcao 6 em desenvolvimento")
+                cancelarReserva()
                 break;
             }
-
         case "7":
             registarEncomenda(usuarioQueEntrou.nome)
             break;
