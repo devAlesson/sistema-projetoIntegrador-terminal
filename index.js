@@ -1,5 +1,6 @@
 import { fazerLogin } from "./login.js";
 import { entradaTexto } from "./entrada.js";
+import { registarEncomenda } from "./encomendas.js";
 
 let usuarioQueEntrou = fazerLogin()
 
@@ -93,7 +94,7 @@ while (controleWhile) {
             }
 
         case "7":
-            console.log("\nopcao 7 em desenvolvimento")
+            registarEncomenda(usuarioQueEntrou.nome)
             break;
 
         case "8":
