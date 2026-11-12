@@ -11,3 +11,4 @@ export function entradaNumero(mensagem) {
 export function perguntarSenha(mensagem) {
     return entrada.question(mensagem, {hideEchoBack: true})
 }
+
