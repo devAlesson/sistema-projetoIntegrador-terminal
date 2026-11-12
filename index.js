@@ -1,6 +1,15 @@
 import { fazerLogin } from "./login.js";
 import { entradaTexto } from "./entrada.js";
-import { registarEncomenda } from "./encomendas.js";
+import { 
+    registarEncomenda, entregarEncomenda, listarEncomendasPorStatus} from "./encomendas.js";
+import {
+    cadastrarMorador, listarMoradores, buscarMoradorPorId,
+} from "./moradores.js"
+
+import {
+    relatorioGeral, relatorioReservasPorArea
+} from "./relatorios.js"
+
 
 let usuarioQueEntrou = fazerLogin()
 
@@ -54,16 +63,16 @@ while (controleWhile) {
                 console.log("\nAcesso nao permitido para o seu perfil!")
                 break;
             } else {
-                console.log("opcao 1 em desenvolvimento")
+                cadastrarMorador()
                 break;
             }
 
         case "2":
-            console.log("\nopcao 2 em desenvolvimento!")
+            listarMoradores()
             break;
 
         case "3":
-            console.log("\nopcao 3 em desenvolvimento!")
+            buscarMoradorPorId()
             break;
 
         case "4":
@@ -98,11 +107,11 @@ while (controleWhile) {
             break;
 
         case "8":
-            console.log("\nopcao 8 em desenvolvimento")
+            entregarEncomenda()
             break;
 
         case "9":
-            console.log("\nopcao 9 em desenvolvimento")
+            listarEncomendasPorStatus()
             break;
 
         case "10":
@@ -110,7 +119,7 @@ while (controleWhile) {
                 console.log("\nAcesso nao permitido para o seu perfil!")
                 break;
             } else {
-                console.log("opcao 10 em desenvolvimento")
+                relatorioGeral()
                 break;
             }
 
@@ -119,7 +128,7 @@ while (controleWhile) {
                 console.log("\nAcesso nao permitido para o seu perfil!")
                 break;
             } else {
-                console.log("opcao 11 em desenvolvimento")
+                relatorioReservasPorArea()
                 break;
             }
 
