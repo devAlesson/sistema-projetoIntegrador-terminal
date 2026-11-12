@@ -125,14 +125,20 @@ export function entregarEncomenda(){
 
 export function listarEncomendasPorStatus() {
     console.log("\n========== LISTAR ENCOMENDAS POR STATUS ==========\n")
-    let statusPesquisado = entradaTexto(
-        "Digite o status que deseja filtrar (Entregue/Pendente): "
-    )
-
+    
     try {
+        if (encomendas.length === 0) {
+            throw new Error("Nao temos encomendas registradas!")
+        }
+
+        let statusPesquisado = entradaTexto(
+        "Digite o status que deseja filtrar (Entregue/Pendente): "
+        )
+
         if (statusPesquisado.trim() === "") {
             throw new Error("A informacao nao pode ficar vazia!")
         }
+        
         if (statusPesquisado.trim().toLowerCase() === "entregue") {
             let entregues = encomendas.filter(encomenda => {
                 return encomenda.status === "Entregue"
