@@ -26,7 +26,7 @@ export function cadastrarMorador() {
             if (nome.trim() === "" || bloco.trim() === "" || telefone.trim() === "" || tipo.trim() === "") {
                 throw new Error("Todas as informacoes devem ser preenchidas!")
             }
-            if (!Number.isInteger(apartamento)) {
+            if (!Number.isInteger(apartamento) || apartamento <= 0) {
                 throw new Error("Numero de apartamento invalido!")
             }
             if (telefone.trim().length < 13 || telefone.trim(). length > 13) {

@@ -60,3 +60,30 @@ export const encomendas = [
     status: "Pendente"
   }
 ];
+
+export const reservas = [
+  {
+    id: 1,
+    area: "Salao de festas",
+    data: "20/12/2026",
+    bloco: "A",
+    apartamento: "101",
+    status: "Cancelada"
+  },
+  {
+    id: 2,
+    area: "Salao de festas",
+    data: "20/12/2026",
+    bloco: "B",
+    apartamento: "201",
+    status: "Ativa"
+  },
+  {
+    id: 3,
+    area: "Churrasqueira",
+    data: "20/12/2026",
+    bloco: "A",
+    apartamento: "102",
+    status: "Ativa"
+  }
+];
