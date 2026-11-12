@@ -85,6 +85,42 @@ export function listarMoradores() {
 
 }
 
+export function buscarMoradorPorId(){
+    console.log("\n========== BUSCAR MORADOR POR ID ==========\n")
+    try {
+        if (moradores.length === 0) {
+            throw new Error("Nao temos moradores cadastrados!")
+        }
+
+        let idPesquisa = entradaNumero(
+            "Digite o id do morador que deseja pesquisar: "
+        )
+
+        if (!Number.isInteger(idPesquisa) || idPesquisa <= 0) {
+            throw new Error("Id invalido!")
+        }
+        let resultadoPesquisa = moradores.find(morador => {
+            return morador.id === idPesquisa
+        })
+        if (resultadoPesquisa) {
+            console.log("\n========== MORADOR ENCONTRADO ===========\n")
+            console.log(`ID: ${resultadoPesquisa.id}`)
+            console.log(`NOME: ${resultadoPesquisa.nome}`)
+            console.log(`BLOCO: ${resultadoPesquisa.bloco}`)
+            console.log(`APARTAMENTO: ${resultadoPesquisa.apartamento}`)
+            console.log(`TELEFONE: ${resultadoPesquisa.telefone}`)
+            console.log(`TIPO: ${resultadoPesquisa.tipo}`)
+            console.log("------------------------\n")
+            
+        } else {
+            throw new Error("Morador nao encontrado pelo ID informado!")
+        }
+
+    } catch (erro) {
+        console.log(`\nErro: ${erro.message}`)
+    }
+}
+
 export function moradorExiste (bloco, apartamento) {
     let existeOuNao = moradores.some(morador => {
         return morador.bloco === bloco && morador.apartamento === apartamento
