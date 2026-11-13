@@ -1,22 +1,52 @@
 import { entradaNumero, entradaTexto } from "./entrada.js";
-import { moradores} from "./dados.js";
+import { moradores } from "./dados.js";
 
 export function cadastrarMorador() {
     console.log("\n========== CADASTRO DE MORADOR ==========\n")
-    while (true) {
 
-        
+    //Nome correto?
+    let nome
+    while (true) {
         try {
-            let nome = entradaTexto(
+            nome = entradaTexto(
                 "\nDigite o nome do novo morador: "
             )
-            let bloco = entradaTexto(
+            if (nome.trim() === "") {
+                 throw new Error("O nome deve ser preenchido!")
+            }
+              break
+        } catch (erro) {
+            console.log(`\nErro Ao Cadastrar: ${erro.message}`)
+        }
+    }
+
+   // Você só pode adicionar A ou B
+    let bloco
+    while (true) {
+        try {
+            // Voce pode adicionar só a ou b
+            bloco = entradaTexto(
                 "Qual bloco: "
             )
-            let apartamento = entradaNumero(
+            bloco = bloco.trim().toUpperCase()
+            if (bloco !== "A" && bloco !== "B") {
+                 throw new Error("Bloco inválido! Digite apenas A ou B.")
+            }
+            break
+        } catch (erro) {
+            console.log(`\nErro Ao Cadastrar: ${erro.message}`)
+        }
+    }
+
+   //---------------------------------------------------------------------- Até 3 digitos
+    let apartamento
+    while (true) {
+        try {
+            // Até 3 digitos
+            apartamento = entradaNumero(
                 "Qual apartamento: "
             )
-            if (!Number.isInteger(apartamento) || apartamento <= 0) {
+            if (!Number.isInteger(apartamento) || apartamento <= 0 || apartamento > 999) {
                 throw new Error("Numero de apartamento invalido!")
             }
 
@@ -25,51 +55,63 @@ export function cadastrarMorador() {
             if (existeMorador) {
                 throw new Error("Ja existe um morador nesse bloco e apartamento!")
             }
-
-            let telefone = entradaTexto(
-                "Informe o telefone nesse formato (91 99999-0002): "
+            break
+        } catch (erro) {
+            console.log(`\nErro Ao Cadastrar: ${erro.message}`)
+        }
+    }
+         //----------------------------------------------------------------------
+    let telefone
+    while (true) {
+        try {
+            telefone = entradaTexto(
+                "Informe o telefone nesse formato (91 99999-0000): "
             )
-            
-            if (telefone.trim().length < 13 || telefone.trim(). length > 13) {
-    
+            if (telefone.trim().length < 13 || telefone.trim().length > 13) {
                 throw new Error("O formato do telefone esta invalido!")
-    
             }
-            let tipo = entradaTexto(
+            break
+        } catch (erro) {
+            console.log(`\nErro Ao Cadastrar: ${erro.message}`)
+        }
+    }
+
+    //----------------------------------------------------------------------
+    let tipo
+    while (true) {
+        try {
+            tipo = entradaTexto(
                 "Tipo (Proprietario/Inquilino): "
             )
-            if (nome.trim() === "" || bloco.trim() === "" || telefone.trim() === "" || tipo.trim() === "") {
-                throw new Error("Todas as informacoes devem ser preenchidas!")
-            }
             if (tipo.trim().toLowerCase() === "proprietario") {
                 tipo = "Proprietario"
-    
             } else if (tipo.trim().toLowerCase() === "inquilino") {
                 tipo = "Inquilino"
             } else {
                 throw new Error("Tipo de morador invalido!")
             }
-            moradores.push({
-                id: moradores.length + 1,
-                nome: nome,
-                bloco: bloco,
-                apartamento: apartamento,
-                telefone: telefone,
-                tipo: tipo
-            })
-            console.log("\nMorador cadastrado com sucesso!")
-            break;
-    
+            break
         } catch (erro) {
             console.log(`\nErro Ao Cadastrar: ${erro.message}`)
         }
     }
+
+    //----------------------------------------------------------------------
+    moradores.push({
+        id: moradores.length + 1,
+        nome: nome,
+        bloco: bloco,
+        apartamento: apartamento,
+        telefone: telefone,
+        tipo: tipo
+    })
+    console.log("\nMorador cadastrado com sucesso!")
 }
 
 
 export function listarMoradores() {
 
-    console.log("\n========== LISTA DE MORADORES ==========\n")
+       console.log("\n========== LISTA DE MORADORES ==========\n")
 
     try {
         if (moradores.length === 0) {
@@ -134,4 +176,3 @@ export function moradorExiste (bloco, apartamento) {
     })
     return existeOuNao
 }
-
