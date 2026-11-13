@@ -12,12 +12,12 @@ import {
 import { reservarAreaComum, listarReservas, cancelarReserva } from "./reservas.js";
 
 
-let usuarioQueEntrou = fazerLogin()
 
-let escolha = ""
-let controleWhile = true
-while (controleWhile) {
-
+while (true) {
+    let usuarioQueEntrou = fazerLogin()
+    
+    let escolha = ""
+    
     if (usuarioQueEntrou.perfil === "Sindico") {
         console.log("\n==================================")
         console.log("=      GESTAO DE CONDOMINIO      =")
@@ -139,7 +139,6 @@ while (controleWhile) {
         case "0":
             console.log("Finalizando o sistema...")
 
-            controleWhile = false
             break;
 
         default:
