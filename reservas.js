@@ -1,11 +1,11 @@
 import { reservas, moradores } from "./dados.js";
-import { entradaTexto } from "./entrada.js";
+import { entradaTexto, entradaNumero } from "./entrada.js";
 
 export function reservarAreaComum() {
     try {
         console.log("\n========== RESERVAR AREA COMUM ==========\n");
 
-        const idMorador = Number(entradaTexto("Digite o ID do morador: "));
+        const idMorador = entradaNumero("Digite o ID do morador: ");
         const morador = moradores.find(m => m.id === idMorador);
 
         if (!morador) {
