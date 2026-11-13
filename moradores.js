@@ -5,34 +5,41 @@ export function cadastrarMorador() {
     console.log("\n========== CADASTRO DE MORADOR ==========\n")
     while (true) {
 
-        let nome = entradaTexto(
-            "\nDigite o nome do novo morador: "
-        )
-        let bloco = entradaTexto(
-            "Qual bloco: "
-        )
-        let apartamento = entradaNumero(
-            "Qual apartamento: "
-        )
-        let telefone = entradaTexto(
-            "Informe o telefone nesse formato (91 99999-0002): "
-        )
         
-        let tipo = entradaTexto(
-            "Tipo (Proprietario/Inquilino): "
-        )
-    
         try {
-            if (nome.trim() === "" || bloco.trim() === "" || telefone.trim() === "" || tipo.trim() === "") {
-                throw new Error("Todas as informacoes devem ser preenchidas!")
-            }
+            let nome = entradaTexto(
+                "\nDigite o nome do novo morador: "
+            )
+            let bloco = entradaTexto(
+                "Qual bloco: "
+            )
+            let apartamento = entradaNumero(
+                "Qual apartamento: "
+            )
             if (!Number.isInteger(apartamento) || apartamento <= 0) {
                 throw new Error("Numero de apartamento invalido!")
             }
+
+            let existeMorador = moradorExiste(bloco, apartamento)
+
+            if (existeMorador) {
+                throw new Error("Ja existe um morador nesse bloco e apartamento!")
+            }
+
+            let telefone = entradaTexto(
+                "Informe o telefone nesse formato (91 99999-0002): "
+            )
+            
             if (telefone.trim().length < 13 || telefone.trim(). length > 13) {
     
                 throw new Error("O formato do telefone esta invalido!")
     
+            }
+            let tipo = entradaTexto(
+                "Tipo (Proprietario/Inquilino): "
+            )
+            if (nome.trim() === "" || bloco.trim() === "" || telefone.trim() === "" || tipo.trim() === "") {
+                throw new Error("Todas as informacoes devem ser preenchidas!")
             }
             if (tipo.trim().toLowerCase() === "proprietario") {
                 tipo = "Proprietario"
